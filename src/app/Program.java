@@ -1,37 +1,12 @@
-package application;
+package app;
 
-import db.DB;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import model.entities.Department;
 
 public class Program {
 
     public static void main(String[] args) {
+        Department obj = new Department(1, "Books");
 
-        Connection conn = null;
-        Statement st = null;
-        ResultSet rs = null;
-
-        try{
-            conn = DB.getConnection();
-            st = conn.createStatement();
-
-            rs = st.executeQuery("select * from department");
-
-            while (rs.next()){
-                System.out.println(rs.getInt("Id") + ", " + rs.getString("name"));
-            }
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-        finally {
-            DB.closeStatement(st);
-            DB.closeResultSet(rs);
-            DB.closeConnection();
-        }
+        System.out.println(obj);
     }
 }
