@@ -1,9 +1,11 @@
 package model.entities;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Department implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private Integer id;
@@ -47,11 +49,8 @@ public class Department implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Department other = (Department) o;
         if(id==null) {
-            if(other.id !=null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
+            return other.id == null;
+        } else return id.equals(other.id);
     }
 
     @Override
