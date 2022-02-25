@@ -15,12 +15,13 @@ public class Crud {
         int resp;
 
         do {
-            System.out.println("\n\nMENU DE OPÇÕES:");
+            System.out.println("\nMENU DE OPÇÕES:");
             System.out.print("1 - findById\n" +
                     "2 - findByDepartment\n" +
                     "3 - findAll\n" +
                     "4 - insert\n" +
                     "5 - update\n" +
+                    "6 - delete\n" +
                     "9 - close\n\n" +
                     "enter option: "
             );
@@ -102,8 +103,14 @@ public class Crud {
                 System.out.println("Update completed");
                 sc.next();
                 return;
+
             case 6:
-            case 7:
+                System.out.println("\n=== TEST 6: seller delete ===\n");
+                System.out.println("Enter id for delete");
+                sellerDao.deleteById(sc.nextInt());
+                System.out.println("Delete completed");
+                break;
+
             case 9:
                 System.out.println("Bye :)\n");
                 return;
