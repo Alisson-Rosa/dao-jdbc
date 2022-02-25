@@ -2,32 +2,15 @@ package app;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
-import model.entities.Department;
-import model.entities.Seller;
-
-import java.util.List;
 
 public class Program {
 
     public static void main(String[] args) {
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
+        Crud crud = new Crud();
 
-        System.out.println("\n=== TEST 1: seller findById ===");
-        Seller seller = sellerDao.findById(4);
-        System.out.println(seller);
+        crud.menuCrud(sellerDao);
 
-        System.out.println("\n=== TEST 2: seller findByDepartment ===\n");
-        Department dp = new Department(2,null);
-        List<Seller> list = sellerDao.findByDepartment(dp);
-        for (Seller obj : list) {
-            System.out.println(obj);
-        }
-
-        System.out.println("\n=== TEST 3: seller findByDepartment ===\n");
-        list = sellerDao.findAll();
-        for (Seller obj : list) {
-            System.out.println(obj);
-        }
     }
 }
