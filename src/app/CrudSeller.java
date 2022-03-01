@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Crud {
+public class CrudSeller {
 
-    public void menuCrud(SellerDao sellerDao) {
+    public void menuCrudSeller(SellerDao sellerDao) {
         Scanner sc = new Scanner(System.in);
         int resp;
 
@@ -26,12 +26,12 @@ public class Crud {
                     "enter option: "
             );
             resp = sc.nextInt();
-            Opcoes(resp, sellerDao);
+            OpcoesSeller(resp, sellerDao);
         } while (resp != 9);
         sc.close();
     }
 
-    public void Opcoes (int resp, SellerDao sellerDao){
+    private void OpcoesSeller(int resp, SellerDao sellerDao){
         Scanner sc = new Scanner(System.in);
 
         switch (resp) {
